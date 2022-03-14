@@ -4,6 +4,9 @@
 #include <assert.h>
 #include <cuda.h>
 #include <time.h>
+#include <iostream>
+#include <fstream>
+using namespace std;
 
 static char* program_name;
 
@@ -267,8 +270,20 @@ int main(int argc, char *argv[])
             b[i-N] = atof(line);
         i++;
     }
-   
-
+    /*
+    ofstream debug_file("A_matrix");
+    if (debug_file.is_open()){
+        for (i=0; i<N; i++)
+        {
+            debug_file << A[i];
+            if (i > 0 and i % 10 == 0){
+                debug_file << "\n";
+            }
+        }
+        debug_file.close();
+    }
+    return(0);
+    */
     start_h = clock();
 
     // Run "iter" iterations of the Jacobi method on HOST
